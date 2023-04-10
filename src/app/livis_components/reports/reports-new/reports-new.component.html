@@ -63,7 +63,7 @@
                             <i class="material-icons">search</i>
                             <span i18n="@@search">{{'search' }}</span>
                         </button>
-                        <button mat-raised-button class="btn btn-primary livis-button mx-2" (click)="downloadReport()"  *ngIf="isAdmin">
+                        <button mat-raised-button class="btn btn-primary livis-button mx-2" (click)="downloadReport()"  >
                             <i class="material-icons">cloud_download</i>
                             <span i18n="@@search">{{'Download' }}</span>
                         </button>
@@ -346,8 +346,21 @@
                         <img *ngFor="let number of [0,1,2]" class="image-border-radius multiple_image my-3" width="45%"
                             [src]="selectedUrl[number]" alt="No Preview Available">
                     </div> -->
-                    <img *ngFor="let number of [0,1,2,3]" class="image-border-radius multiple_image my-3" width="45%"
-                        [src]="printImage[number]" alt="No Preview Available">
+                    <div class="image-container">
+                        <img *ngFor="let number of [0]" class="image-border-radius multiple_image my-3" width="45%"
+                             [src]="printImage[number]" alt="No Preview Available">
+                        <div class="actual-label">Actual-Image</div>
+                      <!-- </div>
+                      <div class="image-container"> -->
+                        <img *ngFor="let number of [1]" class="image-border-radius multiple_image my-3" width="45%"
+                             [src]="printImage[number]" alt="No Preview Available">
+                        <div class="predict-label">Predicted-Image</div>
+                        <!-- <div class="image-box"></div> -->
+                      </div>  
+                    <!-- <img *ngFor="let number of [0]" class="image-border-radius multiple_image my-3" width="45%"
+                        [src]="printImage[number]" alt="No Preview Available" >
+                    <img *ngFor="let number of [1]" class="image-border-radius multiple_image my-3" width="45%"
+                        [src]="printImage[number]" alt="No Preview Available">     -->
 
                 </div>
                 <div class="col-md-4 row justify-content-start align-content-start mt-3 pl-0" *ngIf="selectedDefect"
@@ -491,11 +504,11 @@
                             (click)="printDiv('print')">
                             {{ 'Export' }}
                         </button>
-                        <!-- <button mat-raised-button
+                        <button mat-raised-button
                             class="btn btn-fill btn-primary livis-close-btn livis-button download-btn"
                             (click)="download('print')">
                             {{ 'Download'  }}
-                        </button> -->
+                        </button>
                         <!-- <button mat-raised-button class="btn btn-fill btn-primary livis-close-btn livis-button"
                             (click)="showFlagForm()">
                             {{ 'Flag' }}
@@ -538,7 +551,7 @@
                 <span> #{{ selectedDefect._id ? selectedDefect._id : "--" }}</span>
             </div> -->
             <div class="print_img">
-                <img class="image-border-radius my-3" *ngFor="let i of [0,1,2,3]" width="500" height="200"
+                <img class="image-border-radius my-3" *ngFor="let i of [0,1]" width="500" height="200"
                     [src]="printImage[i]" alt="No Preview Available">
                 <!-- <img class="image-border-radius my-3"  width="98%" alt="No Preview Available"> -->
 
@@ -825,7 +838,7 @@
                     <img *ngFor="let number of [0,1,2]" class="image-border-radius images-to-show multiple_image my-3"
                         width="45%" [src]="selectedUrl[number]" alt="No Preview Available">
                 </div> -->
-                <img *ngFor="let number of [0,1,2,3]" class="image-border-radius images-to-show multiple_image my-3"
+                <img *ngFor="let number of [0,1]" class="image-border-radius images-to-show multiple_image my-3"
                     width="45%" [src]="printImage[number]" alt="No Preview Available">
             </div>
             <div class="col-md-4 row justify-content-start align-content-start mt-3 pl-0" *ngIf="selectedDefect"

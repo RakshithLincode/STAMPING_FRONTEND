@@ -128,18 +128,18 @@
               <mat-panel-title class="livis-heading insp-count">DETAILS</mat-panel-title>
             </mat-expansion-panel-header>
             <mat-divider></mat-divider>
-            <div class="row defect-css">
-              <div class="col-md-8">
+            <!-- <div class="row defect-css"> -->
+              <!-- <div class="col-md-8">
                 Posiiton Radius Defect: 
               </div>
-              <div class="">{{defects}}</div>
-            </div>
-            <div class="row defect-css">
-              <div class="col-md-8">
+              <div class="">{{defects}}</div> -->
+            <!-- </div> -->
+            <!-- <div class="row defect-css"> -->
+              <!-- <div class="col-md-8">
                 Radius Defect Value: 
               </div>
-              <div class="">{{radius_defect_value}}</div>
-            </div>
+              <div class="">{{radius_defect_value}}</div> -->
+            <!-- </div> -->
             <div class="row defect-css">
               <div class="col-md-8">
                 Left Radius: 
@@ -168,7 +168,7 @@
               <!-- <span class="center-aligner defect-list" *ngFor="let defect of defect_list; last as isLast"> {{defect
                 | livisUnderscorePipe | livisCamelCasePipe}}<ng-container *ngIf="!isLast">, </ng-container>&nbsp;
               </span> -->
-              <div class="col-md-12 row my-1">
+              <!-- <div class="col-md-12 row my-1">
                 <span class=" col-md-10 status-dropdown-count"> Description </span>
                 <span class="main-element col-md-2 d-flex px-0" *ngIf="defect_list.includes('Description'); else unaccepted">
                   <mat-icon class="material-icons unaccepted-part" matTooltip="Failed">highlight_off
@@ -233,7 +233,7 @@
                   <mat-icon class="material-icons accepted-part" matTooltip="Passed">check_circle
                   </mat-icon>
                 </ng-template>
-              </div>
+              </div> -->
             </div>
           </mat-expansion-panel>
         </mat-accordion>
@@ -260,7 +260,13 @@
               <div class="col-md-12 row my-2">
                 <div class="col-md-6 allignment-heading-font-size">Circle Radius</div>
                 <div class="col-md-6 text-center allignment-font-size">{{label_angle ? label_angle :
-                  0}}</div>
+                  0}}</div>    
+                  <div class="col-md-6 allignment-heading-font-size">Centroid To Egde Left</div>
+                  <div class="col-md-6 text-center allignment-font-size">{{centroid_to_edge_value_1 ? centroid_to_edge_value_1 :
+                    0}}</div> 
+                  <div class="col-md-6 allignment-heading-font-size">Centroid To Egde Right</div>
+                  <div class="col-md-6 text-center allignment-font-size">{{centroid_to_edge_value_2 ? centroid_to_edge_value_2 :
+                    0}}</div>         
                 <!-- <span class="main-element d-flex" *ngIf="!label_angle; else unaccepted">
                   <mat-icon class="material-icons accepted-part" matTooltip="Passed">check_circle
                   </mat-icon>
@@ -441,10 +447,10 @@
               </mat-form-field>
             </div> -->
             </div>
-          <!-- <div class="col-md-12 row">
+          <div class="col-md-12 row">
             <div class="col-md-6 ">
               <mat-form-field>
-                <input matInput formControlName="bottom" placeholder="Label To Sealer Min" type="number" step="1" min="0">
+                <input matInput formControlName="bottom" placeholder="Centroid To Egde Left" type="number" step="1" min="0">
                 <mat-error *ngIf="isSubmitted && !thresholdForm.controls.port.valid" class="text-danger">
                   Value is required.
                 </mat-error>
@@ -452,13 +458,13 @@
             </div>
             <div class="col-md-6 ">
               <mat-form-field>
-                <input matInput formControlName="left" placeholder="Label To Sealer Max" type="number" step="1" min="0">
+                <input matInput formControlName="left" placeholder="Centroid To Egde Right" type="number" step="1" min="0">
                 <mat-error *ngIf="isSubmitted && !thresholdForm.controls.port.valid" class="text-danger">
                   Value is required.
                 </mat-error>
               </mat-form-field>
             </div>
-          </div> -->
+          </div>
           <div class="modal-footer">
             <button mat-raised-button type="submit" class="btn btn-livis-secondary" data-dismiss="modal"
               aria-hidden="true" (click)="closeModal()">{{'Cancel'}}</button>

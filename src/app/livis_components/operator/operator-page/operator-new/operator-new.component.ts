@@ -126,6 +126,8 @@ export class OperatorNewComponent implements OnInit {
   defects: any;
   label_to_sealent_measurment: any;
   label_angle: any;
+  centroid_to_edge_value_1: any;
+  centroid_to_edge_value_2: any;
   radius_defect_value: any;
   left_radius: any;
   left_length: any;
@@ -174,8 +176,8 @@ export class OperatorNewComponent implements OnInit {
   loadthresholdForm() {
     this.thresholdForm = this._fb.group({
       top: ['', [Validators.required]],
-      // bottom: ['', [Validators.required]],
-      // left: ['', [Validators.required]],
+      bottom: ['', [Validators.required]],
+      left: ['', [Validators.required]],
       // right: ['', [Validators.required]],
     });
   }
@@ -656,6 +658,8 @@ export class OperatorNewComponent implements OnInit {
       this.inferenceFrame = data.inference_frames
       ////////console.log(this.inspection_status)
       this.label_angle = data.label_angle ? data.label_angle : false
+      this.centroid_to_edge_value_1 = data.centroid_to_edge_value_1 ? data.centroid_to_edge_value_1 : false
+      this.centroid_to_edge_value_2 = data.centroid_to_edge_value_2 ? data.centroid_to_edge_value_2 : false
       this.label_to_sealent_measurment = data.label_to_sealent_measurment ? data.label_to_sealent_measurment : false
       this.radius_defect_value = data.radius_defect_value
       this.left_radius = data.left_radius
@@ -769,7 +773,7 @@ export class OperatorNewComponent implements OnInit {
       this.thresholdForm.patchValue({
         top: this.threshold_actual.top_value,
         bottom: this.threshold_actual.bottom_value,
-        // left: this.threshold_actual.left_value,
+        left: this.threshold_actual.left_value,
         // right: this.threshold_actual.right_value,
       });
 
